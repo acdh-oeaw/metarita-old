@@ -40,7 +40,7 @@ sett_RDF_generic = {
                     {
                         'name': 'long',
                         'identifiers': (
-                            (('objects', 'lng', wgs84 + 'long', None),),
+                            (('objects','lng', wgs84 + 'long', None),),
                         )
                     },
                     {
@@ -64,16 +64,14 @@ sett_RDF_generic = {
                     {
                         'name': 'name',
                         'identifiers': (
-                            (('objects', 'prefName',
-                                gndo + 'preferredNameForThePlaceOrGeographicName', None),),
+                            (('objects', 'prefName', gndo + 'preferredNameForThePlaceOrGeographicName', None),),
                         )
                     },
                     {
                         'name': 'label',
                         'identifiers': (
                             (
-                                ('objects', 'label',
-                                    gndo + 'variantNameForThePlaceOrGeographicName', None),
+                                ('objects', 'label', gndo + 'variantNameForThePlaceOrGeographicName', None),
                             ),
                         ),
                     },
@@ -310,8 +308,8 @@ sett_RDF_generic = {
                     {
                         'name': 'name',
                         'identifiers': (
-                            (('objects', 'name', gndo + 'preferredNameForTheCorporateBody', None),),
-                            (('objects', 'name', gndo + 'variantNameForTheCorporateBody', None),),
+                            (('objects', 'prefName', gndo + 'preferredNameForTheCorporateBody', None),),
+                            (('objects', 'prefName', gndo + 'variantNameForTheCorporateBody', None),),
                         )
                     },
                     {
@@ -356,7 +354,7 @@ sett_RDF_generic = {
         'matching': {
             'attributes': {
                 'name': (
-                    (('name', None),),
+                    (('prefName', None),),
                 ),
                 'start_date_written': (
                     (('start', None),),
