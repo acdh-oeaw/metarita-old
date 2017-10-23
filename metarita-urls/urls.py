@@ -1,3 +1,3 @@
 from apis.urls import *
 
-# urlpatterns += (url(r'teimporter/', include('teimporter.urls', namespace='teimporter')),)
+urlpatterns.insert(0, url(r'images/', include('images.urls', namespace='images')))

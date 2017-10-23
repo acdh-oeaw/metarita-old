@@ -9,6 +9,7 @@ __pycache__/
 
 /docs/_*/*
 data
+downloads
 /tei/*.xml
 tei.egg-info
 build
