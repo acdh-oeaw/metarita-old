@@ -2,6 +2,7 @@ import zipfile
 import os
 from django.conf import settings
 from django.shortcuts import render
+from django.contrib.contenttypes.models import ContentType
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, FormView
@@ -28,14 +29,23 @@ class UploadZip(FormView):
         context['unzip_path'] = extract_path
         zf = zipfile.ZipFile(zipped, 'r')
         extracted = zf.extractall(extract_path)
+        if cd.get('link_to_class'):
+            link_to_class = cd.get('link_to_class')
+            model_pk = int(cd.get('object_id'))
+            fetched_class = ContentType.objects.get(model=link_to_class)
+            fetched_model = fetched_class.get_object_for_this_type(id=model_pk)
+        else:
+            fetched_model = None
         for x in zf.infolist():
             if (x.filename).endswith('.jp2'):
                 print(x.filename)
                 new_img = Image.objects.create(
                     directory=cd['filepath'],
                     custom_filename=x.filename)
-                # new_img.save()
-                # x.extract(x.filename, [context['unzip_path']])
+                if fetched_model:
+                    new_img.image_of = [fetched_model]
+                else:
+                    pass
         context['filepath'] = filepath
         context['extract_path'] = extract_path
         context['zipped'] = zf.infolist()

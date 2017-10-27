@@ -29,6 +29,14 @@
             </div>
         </div>
         <div class="panel-body" style="text-align:center">
+            <div>
+                {% for x in image.image_of.all %}
+                <li>
+                    {{ x }}
+                </li>
+                {% endfor %}
+
+            </div>
             <div class="btn-group">
                 <button type="button" class="btn btn-primary" id="zoom-in">Zoom In</button>
                 <button type="button" class="btn btn-primary" id="home">Default</button>

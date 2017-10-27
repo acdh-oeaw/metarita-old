@@ -16,6 +16,8 @@ class GenericFilterFormHelper(FormHelper):
 class UploadZipForm(forms.Form):
     filepath = forms.CharField(label='path to file', max_length=250, required=False)
     uploaded_zip = forms.FileField()
+    link_to_class = forms.CharField(label='Name of the class', max_length=250, required=False)
+    object_id = forms.IntegerField(label='Primary key of the related object', required=False)
 
     def __init__(self, *args, **kwargs):
         super(UploadZipForm, self).__init__(*args, **kwargs)
