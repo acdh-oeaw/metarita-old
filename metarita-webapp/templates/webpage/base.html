@@ -128,8 +128,19 @@
                                 <li>
                                     <a href="{% url 'entities:generic_entities_list' ent %}">{{ent|title}}</a>
                                 </li>
-                          {% endfor %}
-                      </ul>
+                            {% endfor %}
+                            {% if user.is_authenticated %}
+                                <li>
+                                    <a href="{% url 'images:image_list' %}">All Images</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'images:image_create' %}">Create new Image</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'images:image_zipupload' %}">Upload multiple Images</a>
+                                </li>
+                            {% endif %}
+                        </ul>
                     </li>
 
                 </ul>

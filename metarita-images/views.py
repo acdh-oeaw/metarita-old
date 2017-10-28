@@ -43,7 +43,8 @@ class UploadZip(FormView):
                     directory=cd['filepath'],
                     custom_filename=x.filename)
                 if fetched_model:
-                    new_img.image_of = [fetched_model]
+                    new_img.depicts_work = [fetched_model][0]
+                    new_img.save()
                 else:
                     pass
         context['filepath'] = filepath

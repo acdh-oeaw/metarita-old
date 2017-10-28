@@ -1,9 +1,8 @@
 import os
-from entities import models as apis_models
 from django.db import models
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from gm2m import GM2MField
+from entities.models import Work
 
 try:
     base_url = settings.IIIF_BASE
@@ -39,7 +38,7 @@ class Image(models.Model):
     file_extension = models.CharField(
         blank=True, max_length=20, choices=FILE_EXTENSION_CHOICES, default='.jp2')
     upload = models.FileField(upload_to=set_directory_path, blank=True, null=True)
-    image_of = models.ForeignKey(apis_models.Work, blank=True, null=True)
+    depicts_work = models.ForeignKey(Work, blank=True, null=True, related_name='work_depicted_by')
 
     def save(self, *args, **kwargs):
         if self.path is None:
