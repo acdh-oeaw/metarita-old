@@ -20,3 +20,4 @@ build
 /metarita-settings/mysql.py
 metarita-data
 /metarita-settings/mysql.py
+static_dir
